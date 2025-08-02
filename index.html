@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planix</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome para iconos -->
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+</head>
+<body class="fullpage">
+
+  <div class="container">
+    <!-- Zona de Login -->
+    <section class="login-container card animate-fade-in">
+      <div class="logo animate-slide-down">
+        <img src="img/logo-planix.svg" alt="Logo Planix">
+      </div>
+      <p class="animate-slide-up delay-2">
+        Introduce tu código para comenzar la clase
+      </p>
+
+      <div class="join-box animate-fade-in delay-3">
+        <i class="fas fa-key icon"></i>
+        <input
+          id="joinCode"
+          type="text"
+          placeholder="Código de acceso"
+          maxlength="10"
+        />
+        <button id="joinBtn">
+          <i class="fas fa-arrow-right"></i> Unirse
+        </button>
+      </div>
+
+      <div id="message" class="message animate-fade-in delay-4"></div>
+    </section>
+
+    <!-- Botón para abrir el modal -->
+    <button
+      id="btnPersonalizar"
+      class="btn-primary animate-fade-in delay-5"
+    >
+      <i class="fas fa-user-edit"></i> Personalizar
+    </button>
+  </div>
+
+  <!-- Modal de Avatar Shop (oculto por defecto) -->
+  <div id="modalAvatarShop" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content card animate-fade-in">
+      <button class="modal-close" aria-label="Cerrar">&times;</button>
+      
+      <h2>Personaliza tu Avatar</h2>
+      <div class="avatar-preview">
+        <img id="base-avatar" src="img/base.png" alt="Avatar base">
+        <img id="hat"          src="" class="layer" alt="Sombrero">
+        <img id="glasses"      src="" class="layer" alt="Gafas">
+      </div>
+
+      <div class="item-gallery">
+        <h3>Accesorios</h3>
+        <button onclick="equipItem('hat','img/hat1.png')">
+          Sombrero 1
+        </button>
+        <button onclick="equipItem('glasses','img/glasses1.png')">
+          Gafas 1
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

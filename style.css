@@ -1,0 +1,504 @@
+:root {
+  /* Paleta de colores principales */
+  --primary: #3f51b5;
+  --primary-dark: #303f9f;
+  --secondary: #5c6bc0;
+  --bg-gradient-start: #1a237e;
+  --bg-gradient-end: #3949ab;
+  --card-bg: #fff;
+  --text-main: #333;
+  --text-muted: #555;
+
+  /* Espaciados */
+  --gap: 1rem;
+  --radius: 8px;
+  --transition: 0.3s ease;
+
+  /* Tamaños */
+  --max-card-width: 400px;
+}
+/* Reset básico */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo de la página y contenedor grid */
+body.fullpage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--gap);
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: var(--text-main);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--gap) * 2);
+  width: 100%;
+  max-width: 2 * var(--max-card-width);
+}
+
+/* Stack en móvil */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Tarjeta base */
+.card {
+  background: var(--card-bg);
+  padding: calc(var(--gap) * 2);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: var(--max-card-width);
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Títulos y texto */
+h1, h2, h3, p {
+  margin-bottom: var(--gap);
+}
+h1 {
+  font-size: 1.8rem;
+  color: #283593;
+}
+p {
+  color: var(--text-muted);
+}
+/* Login Container */
+.login-container .logo img {
+  height: 60px;
+  margin-bottom: var(--gap);
+}
+
+.join-box {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.join-box .icon {
+  color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+.join-box input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color var(--transition);
+}
+
+.join-box input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.join-box button {
+  padding: 0.8rem 1.2rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: background var(--transition);
+}
+
+.join-box button:hover {
+  background: var(--primary-dark);
+}
+
+.message {
+  margin-top: var(--gap);
+  min-height: 1.2em;
+  font-size: 0.95rem;
+}
+
+/* Éxito y error */
+.success-bg {
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+}
+
+.error-bg {
+  background: linear-gradient(135deg, #c62828, #ef5350);
+}
+
+.success-icon, .error-icon {
+  font-size: 3rem;
+  margin-bottom: 0.7rem;
+  color: #fff;
+}
+
+.avatar-container {
+background: #f7f7f7;
+}
+
+/* Reusa .card pendiente */
+/*.avatar-container.avatar-shop {
+  /* hereda .card */
+
+
+.avatar-shop h2 {
+  margin-top: 0;
+}
+
+.avatar-preview {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto var(--gap);
+}
+
+.avatar-preview img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.layer {
+  pointer-events: none;
+}
+
+.item-gallery {
+  text-align: center;
+}
+
+.item-gallery button {
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.item-gallery button:hover {
+  background: var(--primary-dark);
+}
+
+/* Keyframes */
+@keyframes fade-in {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes zoom-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Clases */
+  .animate-fade-in { animation: fade-in 0.8s var(--transition) both; }
+  .animate-slide-down { animation: slide-down 0.6s var(--transition) both; }
+  .animate-slide-up   { animation: slide-up 0.6s var(--transition) both; }
+  .animate-zoom-in    { animation: zoom-in 0.6s var(--transition) both; }
+
+  /* Delays */
+  .delay-1 { animation-delay: 0.2s; }
+  .delay-2 { animation-delay: 0.4s; }
+  .delay-3 { animation-delay: 0.6s; }
+  .delay-4 { animation-delay: 0.8s; }
+
+/* Tarjeta base */
+.card {
+  background: var(--card-bg);
+  padding: calc(var(--gap) * 2);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: var(--max-card-width);
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Títulos y texto */
+h1, h2, h3, p {
+  margin-bottom: var(--gap);
+}
+h1 {
+  font-size: 1.8rem;
+  color: #283593;
+}
+p {
+  color: var(--text-muted);
+}
+/* Login Container */
+.login-container .logo img {
+  height: 60px;
+  margin-bottom: var(--gap);
+}
+
+.join-box {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.join-box .icon {
+  color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+.join-box input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color var(--transition);
+}
+
+.join-box input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.join-box button {
+  padding: 0.8rem 1.2rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: background var(--transition);
+}
+
+.join-box button:hover {
+  background: var(--primary-dark);
+}
+
+.message {
+  margin-top: var(--gap);
+  min-height: 1.2em;
+  font-size: 0.95rem;
+}
+
+/* Éxito y error */
+.success-bg {
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+}
+.error-bg {
+  background: linear-gradient(135deg, #c62828, #ef5350);
+}
+.success-icon, .error-icon {
+  font-size: 3rem;
+  margin-bottom: 0.7rem;
+  color: #fff;
+}
+/* Keyframes */
+@keyframes fade-in {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes slide-down {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+@keyframes zoom-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Clases utilitarias */
+.animate-fade-in { animation: fade-in 0.8s var(--transition) both; }
+.animate-slide-down { animation: slide-down 0.6s var(--transition) both; }
+.animate-slide-up   { animation: slide-up 0.6s var(--transition) both; }
+.animate-zoom-in    { animation: zoom-in 0.6s var(--transition) both; }
+
+/* Delays */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+/* Oculta el modal */
+.hidden {
+  display: none;
+}
+
+/* Estilos generales del modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Fondo oscuro */
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Caja de contenido */
+.modal-content {
+  position: relative;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+/* Botón de cerrar */
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Estilo del botón principal */
+.btn-primary {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Asegura que las capas del avatar se superpongan */
+.avatar-preview {
+  position: relative;
+  width: 150px;  /* ajustar según tu diseño */
+  height: 150px;
+  margin-bottom: 1rem;
+}
+.avatar-preview .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* 1. Acomoda la .container en columna y centra */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+/* 2. Oculta el modal con máxima prioridad */
+.hidden {
+  display: none !important;
+}
+
+/* 3. Modal fullscreen centrado */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* 4. Caja de contenido del modal */
+.modal-content {
+  position: relative;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+/* 5. Botón de cerrar */
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 6. Botón principal “Personalizar” */
+.btn-primary {
+  padding: 0.6rem 1.2rem;
+  background: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 7. Preview de avatar: superposición de capas */
+.avatar-preview {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 1rem auto;
+}
+.avatar-preview .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.logo-img {
+  width: 260px;              /* tamaño horizontal cómodo */
+  height: auto;              /* mantiene proporción */
+  display: block;
+  margin: 0 auto;            /* centra la imagen */
+  object-fit: contain;       /* evita distorsiones */
+  image-rendering: auto;     /* suaviza en alta resolución */
+}
